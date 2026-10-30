@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>As calculadoras do MecPro — fórmulas e fontes</title>
+<meta name="description" content="O que cada calculadora do MecPro pede, como faz a conta, dicas de medição e fontes.">
+<meta name="theme-color" content="#15191C">
+<meta property="og:title" content="As calculadoras do MecPro — fórmulas e fontes">
+<meta property="og:description" content="O que cada calculadora do MecPro pede, como faz a conta, dicas de medição e fontes.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="34" height="34">MecPro</a>
+  <nav class="nav" aria-label="Principal"><a href="index.html">Como usar</a><a href="calculadoras.html" aria-current="page">Calculadoras</a><a href="index.html#fontes">Fontes</a><a href="privacidade.html">Privacidade</a></nav>
+</div></header>
+<main id="conteudo">
+
+<section class="page-head"><div class="wrap">
+  <h1>As calculadoras</h1>
+  <p>O que cada uma pede, como faz a conta, as dicas de medição e as fontes usadas. É o mesmo texto que aparece
+  em <b>⋮ › Como o cálculo é feito</b> dentro do app. Toque numa calculadora para abrir.</p>
+</div></section>
+<div class="search"><div class="wrap row">
+  <input id="q" type="search" placeholder="Buscar: lambda, bico, bateria, torque…" aria-label="Buscar calculadora" autocomplete="off">
+  <div class="chips" role="group" aria-label="Categorias"><button class="chip" type="button" data-cat="" aria-pressed="true">Todas</button><button class="chip" type="button" data-cat="injecao-e-combustivel" aria-pressed="false">Injeção e combustível</button><button class="chip" type="button" data-cat="sensores" aria-pressed="false">Sensores</button><button class="chip" type="button" data-cat="motor" aria-pressed="false">Motor</button><button class="chip" type="button" data-cat="transmissao-e-rodas" aria-pressed="false">Transmissão e rodas</button><button class="chip" type="button" data-cat="eletrica" aria-pressed="false">Elétrica</button><button class="chip" type="button" data-cat="oficina" aria-pressed="false">Oficina</button></div>
+</div></div>
+<div class="wrap" style="padding-bottom:40px">
+<section class="cat" data-cat="injecao-e-combustivel" id="injecao-e-combustivel"><div class="cat-title"><h2>Injeção e combustível</h2><span>10</span></div><details class="calc" id="fuel_trim" data-search="correção de combustível interpreta as correções curta e longa (fuel trim) injeção e combustível correção curta – marcha lenta correção longa – marcha lenta correção curta – 2.500 rpm correção longa – 2.500 rpm">
+<summary><h3>Correção de combustível</h3><div class="sub">Interpreta as correções curta e longa (fuel trim)</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Correção curta – marcha lenta <small>(%)</small></li><li>Correção longa – marcha lenta <small>(%)</small></li><li>Correção curta – 2.500 rpm <small>(%)</small> <small>· opcional</small></li><li>Correção longa – 2.500 rpm <small>(%)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Total = correção curta + correção longa.</p><p>Faixas típicas: até ±10% normal; de ±10% a ±20% atenção; acima de ±20% fora do padrão (muitas ECUs saturam perto de ±25%).</p><p>Positivo = a ECU está adicionando combustível (a mistura estava pobre). Negativo = está retirando (a mistura estava rica).</p><p>Comparar marcha lenta com 2.500 rpm separa defeitos que pesam com pouco fluxo de ar (entrada falsa) dos que pesam com alta demanda (alimentação de combustível).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Leia com o motor quente e em malha fechada (sonda lambda atuando).</li><li>Em carro flex, logo após abastecer a ECU ainda pode estar reaprendendo o teor de etanol.</li><li>Em motor V, compare as duas bancadas: se só uma estiver fora, o defeito é daquele lado.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://saemobilus.sae.org/standards/j1979_201009-e-e-diagnostic-test-modes" rel="noopener">SAE J1979 — E/E Diagnostic Test Modes (OBD II)</a></li><li><a href="https://legacy-www.motor.com/?p=4951" rel="noopener">Seyfert, K. — “OBD II Generic PID Diagnosis”, MOTOR Magazine, set. 2007</a></li></ul>
+</div></details><details class="calc" id="ve" data-search="eficiência volumétrica ve a partir do maf, ou fluxo de ar esperado injeção e combustível o que você quer calcular? cilindrada rotação pressão no coletor (map, absoluta) temperatura do ar admitido (iat) fluxo de ar lido (maf) eficiência volumétrica estimada">
+<summary><h3>Eficiência volumétrica</h3><div class="sub">VE a partir do MAF, ou fluxo de ar esperado</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>O que você quer calcular? <small>(VE (tenho o MAF) | Fluxo de ar (tenho a VE))</small> <small>· escolha</small></li><li>Cilindrada <small>(L / cm³ / pol³)</small></li><li>Rotação <small>(rpm)</small></li><li>Pressão no coletor (MAP, absoluta) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Temperatura do ar admitido (IAT) <small>(°C / °F)</small></li><li>Fluxo de ar lido (MAF) <small>(g/s / kg/h / lb/min)</small></li><li>Eficiência volumétrica estimada <small>(%)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Densidade do ar: ρ = MAP ÷ (287,05 × (IAT + 273,15)).</p><p>Fluxo teórico com VE de 100% (motor 4 tempos): cilindrada × rpm ÷ 120 × ρ.</p><p>VE = MAF medido ÷ fluxo teórico.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Use leituras do mesmo instante (congele a tela do scanner ou use o gráfico).</li><li>Com MAP e IAT corretos, aspirados em bom estado ficam por volta de 75–95% em carga; em marcha lenta é comum ficar abaixo disso.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="lambda_af" data-search="lambda ↔ a/f (flex) converte lambda e a/f para qualquer teor de etanol injeção e combustível qual valor você tem? lambda (λ) a/f mostrado (escala 14,7) a/f real etanol no combustível">
+<summary><h3>Lambda ↔ A/F (flex)</h3><div class="sub">Converte lambda e A/F para qualquer teor de etanol</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Qual valor você tem? <small>(Lambda (λ) | A/F na escala da gasolina (14,7) | A/F real do combustível)</small> <small>· escolha</small></li><li>Lambda (λ)</li><li>A/F mostrado (escala 14,7)</li><li>A/F real</li><li>Etanol no combustível <small>(%)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Fração mássica de etanol: w = (E × 0,789) ÷ (E × 0,789 + (1 − E) × 0,745).</p><p>A/F estequiométrico = w × 9,0 + (1 − w) × 14,7.</p><p>λ = A/F real ÷ A/F estequiométrico. Na escala da gasolina: λ = A/F mostrado ÷ 14,7.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>O etanol de posto (hidratado) tem uns 5–7% de água: com 100% de etanol hidratado o A/F estequiométrico real fica perto de 8,4–8,7. Por isso o lambda é a referência mais segura — é o que a sonda wideband mede.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li><li><a href="https://www.noticiasagricolas.com.br/noticia/425811" rel="noopener">Notícias Agrícolas — gasolina comum passa a ter 32% de etanol (E32) a partir de 01/08/2026</a></li></ul>
+</div></details><details class="calc" id="duty_cycle" data-search="tempo de injeção ↔ duty cycle quanto do tempo disponível o bico fica aberto injeção e combustível tempo de injeção rotação tipo de injeção">
+<summary><h3>Tempo de injeção ↔ duty cycle</h3><div class="sub">Quanto do tempo disponível o bico fica aberto</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Tempo de injeção <small>(ms)</small></li><li>Rotação <small>(rpm)</small></li><li>Tipo de injeção <small>(Sequencial / semissequencial (1 pulso a cada 2 voltas) | Simultânea / banco a banco (1 pulso por volta))</small> <small>· escolha</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Tempo disponível por pulso: 120.000 ÷ rpm (sequencial) ou 60.000 ÷ rpm (1 pulso por volta), em ms.</p><p>Duty cycle = tempo de injeção ÷ tempo disponível × 100.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Alguns scanners mostram o tempo de injeção sem o tempo morto do bico (tempo de abertura); o tempo elétrico real é um pouco maior.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="fuel_pressure" data-search="pressão de combustível esperada compara o manômetro com o valor esperado injeção e combustível sistema de combustível pressão nominal do sistema (manômetro) map no momento da medição (absoluta) pressão atmosférica (baro) pressão medida no manômetro">
+<summary><h3>Pressão de combustível esperada</h3><div class="sub">Compara o manômetro com o valor esperado</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Sistema de combustível <small>(Com retorno – regulador ligado ao coletor | Sem retorno ou regulador sem referência)</small> <small>· escolha</small></li><li>Pressão nominal do sistema (manômetro) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>MAP no momento da medição (absoluta) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Pressão atmosférica (BARO) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Pressão medida no manômetro <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Com regulador referenciado ao coletor, a diferença entre a linha e o coletor é constante:<br>pressão esperada = pressão nominal − (BARO − MAP).</p><p>Em sistemas sem retorno, a pressão de linha é praticamente constante.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Em turbo, o MAP acima da pressão atmosférica faz a pressão de linha subir na mesma medida (regulador 1:1).</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="injector_size" data-search="dimensionamento de bico vazão necessária para a potência desejada injeção e combustível potência desejada número de bicos combustível aspiração consumo específico (bsfc) duty cycle máximo pressão de trabalho (diferencial) pressão em que a vazão do bico é especificada">
+<summary><h3>Dimensionamento de bico</h3><div class="sub">Vazão necessária para a potência desejada</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Potência desejada <small>(cv / hp / kW)</small></li><li>Número de bicos <small>(bicos)</small></li><li>Combustível <small>(Gasolina | Etanol)</small> <small>· escolha</small></li><li>Aspiração <small>(Aspirado | Turbo / compressor)</small> <small>· escolha</small></li><li>Consumo específico (BSFC) <small>(lb/hp·h)</small> <small>· opcional</small></li><li>Duty cycle máximo <small>(%)</small></li><li>Pressão de trabalho (diferencial) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Pressão em que a vazão do bico é especificada <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Combustível por hora = potência (hp) × BSFC.</p><p>Vazão por bico = combustível ÷ nº de bicos ÷ duty cycle máximo.</p><p>Conversão para a pressão de especificação: Q₂ = Q₁ × √(P₂ ÷ P₁).</p><p>BSFC típico: gasolina 0,50 (aspirado) / 0,60 (turbo); etanol 0,72 / 0,87 lb/hp·h.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Escolha um bico com vazão nominal igual ou um pouco acima da calculada (10–15% de margem).</li></ul><h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="injector_pressure" data-search="vazão do bico × pressão quanto o bico entrega com outra pressão injeção e combustível vazão nominal do bico pressão da vazão nominal nova pressão">
+<summary><h3>Vazão do bico × pressão</h3><div class="sub">Quanto o bico entrega com outra pressão</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Vazão nominal do bico <small>(cc/min)</small></li><li>Pressão da vazão nominal <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Nova pressão <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>A vazão varia com a raiz quadrada da pressão: Q₂ = Q₁ × √(P₂ ÷ P₁).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Use a pressão diferencial (linha menos coletor). Com regulador referenciado ao coletor ela é a pressão nominal; em sistemas sem retorno, desconte o vácuo do coletor.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Física básica — Lei de Ohm, Bernoulli (vazão ∝ √pressão), cinemática</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="injector_balance" data-search="teste de bicos na bancada vazão e resistência comparadas à tabela e entre os bicos injeção e combustível bico de referência volume medido em cada bico resistência de cada bico (opcional)">
+<summary><h3>Teste de bicos na bancada</h3><div class="sub">Vazão e resistência comparadas à tabela e entre os bicos</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Bico de referência <small>· tabela</small></li><li>Volume medido em cada bico <small>(mL)</small> <small>· um por item</small></li><li>Resistência de cada bico <small>(Ω)</small> <small>· um por item</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Tabela de referência: vazão dos bicos para a máquina Tecnomotor TM503.</p><p>Com bico de referência: cada volume é comparado com a faixa da tabela. Dentro da faixa = aprovado; até 5% fora = atenção; mais que isso = reprovado.</p><p>Equalização (2 bicos ou mais): desvio = (volume − média) ÷ média × 100. Até ±5% bom; de ±5% a ±10% atenção; acima de ±10% reprovado.</p><p>Resistência: comparada com a faixa da tabela ou, sem referência, com a média dos bicos (±10%).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Os volumes da tabela são da Tecnomotor TM503 (programa de teste de vazão, na pressão indicada). Em outra bancada o volume muda com o tempo e a rotação do teste: nesse caso, confie mais na equalização entre os bicos.</li><li>Bico de baixa impedância (1 a 5 Ω) precisa do modo indicado na tabela (Chopper ou Resistor); acionado direto, a bobina pode queimar.</li><li>Também serve para o teste de retorno do diesel leve; ali, o bico com MAIS retorno é o suspeito.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Tabela de vazão de bicos de referência da Tecnomotor TM503</li></ul>
+</div></details><details class="calc" id="tank_blend" data-search="mistura no tanque (flex) teor de etanol depois de abastecer injeção e combustível combustível no tanque agora etanol no tanque agora vai abastecer com etanol no combustível abastecido quantidade a abastecer teor de etanol desejado">
+<summary><h3>Mistura no tanque (flex)</h3><div class="sub">Teor de etanol depois de abastecer</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Combustível no tanque agora <small>(L / mL / gal (EUA))</small></li><li>Etanol no tanque agora <small>(%)</small></li><li>Vai abastecer com <small>(Etanol (hidratado) | Gasolina comum | Outro teor)</small> <small>· escolha</small></li><li>Etanol no combustível abastecido <small>(%)</small></li><li>Quantidade a abastecer <small>(L / mL / gal (EUA))</small> <small>· opcional</small></li><li>Teor de etanol desejado <small>(%)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Teor final = (litros no tanque × teor atual + litros abastecidos × teor do combustível) ÷ total.</p><p>Etanol hidratado conta como 100%. A gasolina comum usa o teor definido nas Configurações.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Depois de abastecer, a ECU flex leva alguns minutos rodando para reaprender o teor; o valor no scanner muda aos poucos.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://www.noticiasagricolas.com.br/noticia/425811" rel="noopener">Notícias Agrícolas — gasolina comum passa a ter 32% de etanol (E32) a partir de 01/08/2026</a></li></ul>
+</div></details><details class="calc" id="ethanol_or_gasoline" data-search="etanol ou gasolina? qual compensa abastecer injeção e combustível preço do etanol preço da gasolina consumo com etanol consumo com gasolina">
+<summary><h3>Etanol ou gasolina?</h3><div class="sub">Qual compensa abastecer</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Preço do etanol <small>(R$/L)</small></li><li>Preço da gasolina <small>(R$/L)</small></li><li>Consumo com etanol <small>(km/L / L/100 km / mpg (EUA))</small> <small>· opcional</small></li><li>Consumo com gasolina <small>(km/L / L/100 km / mpg (EUA))</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Regra prática: o etanol compensa quando custa menos de 70% do preço da gasolina.</p><p>Com o consumo real do carro: custo por km = preço ÷ km por litro.</p></div>
+<h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li><li><a href="https://www.noticiasagricolas.com.br/noticia/425811" rel="noopener">Notícias Agrícolas — gasolina comum passa a ter 32% de etanol (E32) a partir de 01/08/2026</a></li></ul>
+</div></details></section><section class="cat" data-cat="sensores" id="sensores"><div class="cat-title"><h2>Sensores</h2><span>4</span></div><details class="calc" id="baro_map" data-search="pressão atmosférica, map e vácuo baro esperado pela altitude e vácuo de marcha lenta sensores altitude do local map/baro com motor desligado (chave ligada) map em marcha lenta (motor quente)">
+<summary><h3>Pressão atmosférica, MAP e vácuo</h3><div class="sub">BARO esperado pela altitude e vácuo de marcha lenta</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Altitude do local <small>(m / pés)</small></li><li>MAP/BARO com motor desligado (chave ligada) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small> <small>· opcional</small></li><li>MAP em marcha lenta (motor quente) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Atmosfera padrão: P = 101,325 × (1 − 2,25577×10⁻⁵ × h)^5,25588 kPa (h em metros).</p><p>Vácuo = pressão atmosférica − MAP.</p><p>Referência: ~17–21 inHg (57–71 kPa) de vácuo ao nível do mar em motor aspirado sadio. Em altitude o vácuo cai junto com a pressão atmosférica, por isso o app compara o vácuo em relação à pressão do local.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>O clima muda a pressão atmosférica em ±1–3 kPa; pequenas diferenças são normais.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770009539.pdf" rel="noopener">NOAA/NASA/USAF — U.S. Standard Atmosphere, 1976</a></li></ul>
+</div></details><details class="calc" id="ntc" data-search="sensor de temperatura (ntc) resistência ↔ temperatura ↔ tensão do sinal sensores qual valor você tem? resistência medida temperatura tensão do sinal resistência do sensor a 20 °c coeficiente beta (b) resistor interno da ecu (pull-up) tensão de referência">
+<summary><h3>Sensor de temperatura (NTC)</h3><div class="sub">Resistência ↔ temperatura ↔ tensão do sinal</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Qual valor você tem? <small>(Resistência | Temperatura | Tensão do sinal)</small> <small>· escolha</small></li><li>Resistência medida <small>(kΩ)</small></li><li>Temperatura <small>(°C / °F)</small></li><li>Tensão do sinal <small>(V)</small></li><li>Resistência do sensor a 20 °C <small>(kΩ)</small></li><li>Coeficiente beta (B) <small>(K)</small></li><li>Resistor interno da ECU (pull-up) <small>(kΩ)</small></li><li>Tensão de referência <small>(V)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Modelo beta do NTC: R = R₂₀ × e^(B × (1/T − 1/293,15)), com T em kelvin.</p><p>Tensão do sinal (divisor com o resistor da ECU): V = Vref × R ÷ (R + R_pull-up).</p><p>Valores padrão aproximam um NTC automotivo comum (≈2,5 kΩ a 20 °C, ≈0,3 kΩ a 80 °C).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Cada fabricante tem sua curva; se tiver a tabela do sensor, ajuste R₂₀ e beta.</li><li>Se a temperatura calculada pela resistência bate com o scanner mas não com um termômetro infravermelho, o sensor está fora da curva.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Modelo beta (β) de termistores NTC — folhas de dados de fabricantes de termistores</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="pedal_tps" data-search="pedal e borboleta (2 pistas) confere a coerência entre as duas pistas sensores como as pistas se relacionam tensão da pista 1 tensão da pista 2 tensão de referência">
+<summary><h3>Pedal e borboleta (2 pistas)</h3><div class="sub">Confere a coerência entre as duas pistas</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Como as pistas se relacionam <small>(Pista 2 = metade da pista 1 | Espelhadas (soma ≈ referência) | Iguais (paralelas))</small> <small>· escolha</small></li><li>Tensão da pista 1 <small>(V)</small></li><li>Tensão da pista 2 <small>(V)</small></li><li>Tensão de referência <small>(V)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Pista 2 esperada: metade da pista 1, referência menos a pista 1, ou igual à pista 1, conforme o sistema.</p><p>Diferença até 0,10 V: coerente. De 0,10 a 0,20 V: atenção. Acima disso a ECU tende a acusar falha de plausibilidade.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Leia em várias posições (solto, meio curso, fundo). Divergência que muda ao longo do curso indica trilha gasta.</li><li>Alguns sistemas usam outras relações ou deslocamentos; na dúvida, confira na documentação técnica do veículo.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="o2_sensor" data-search="sonda lambda convencional amplitude e velocidade de resposta sensores posição da sonda tensão mínima tensão máxima oscilações em 10 segundos (a 2.500 rpm)">
+<summary><h3>Sonda lambda convencional</h3><div class="sub">Amplitude e velocidade de resposta</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Posição da sonda <small>(Antes do catalisador | Depois do catalisador)</small> <small>· escolha</small></li><li>Tensão mínima <small>(V)</small></li><li>Tensão máxima <small>(V)</small></li><li>Oscilações em 10 segundos (a 2.500 rpm) <small>(vezes)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Sonda de zircônia: ~0,1 V = mistura pobre; ~0,9 V = mistura rica.</p><p>Antes do catalisador: deve oscilar entre menos de 0,2 V e mais de 0,8 V, cerca de 1 vez por segundo ou mais a 2.500 rpm.</p><p>Depois do catalisador: deve ficar quase estável (≈0,5–0,8 V). Se oscilar como a de antes, o catalisador não está armazenando oxigênio.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Sonda banda larga (wideband) é lida em lambda ou corrente; para ela use a calculadora Lambda ↔ A/F.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details></section><section class="cat" data-cat="motor" id="motor"><div class="cat-title"><h2>Motor</h2><span>5</span></div><details class="calc" id="displacement" data-search="cilindrada a partir do diâmetro, curso e cilindros motor diâmetro do cilindro curso do pistão número de cilindros">
+<summary><h3>Cilindrada</h3><div class="sub">A partir do diâmetro, curso e cilindros</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Diâmetro do cilindro <small>(mm / cm / pol)</small></li><li>Curso do pistão <small>(mm / cm / pol)</small></li><li>Número de cilindros <small>(cil.)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Volume de um cilindro = π ÷ 4 × diâmetro² × curso.</p><p>Cilindrada = volume de um cilindro × número de cilindros.</p></div>
+<h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li></ul>
+</div></details><details class="calc" id="compression_ratio" data-search="taxa de compressão com câmara, junta, deck e pistão motor diâmetro do cilindro curso do pistão volume da câmara no cabeçote espessura da junta comprimida diâmetro do furo da junta pistão abaixo da face do bloco (deck) volume do pistão">
+<summary><h3>Taxa de compressão</h3><div class="sub">Com câmara, junta, deck e pistão</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Diâmetro do cilindro <small>(mm / cm / pol)</small></li><li>Curso do pistão <small>(mm / cm / pol)</small></li><li>Volume da câmara no cabeçote <small>(cm³)</small></li><li>Espessura da junta comprimida <small>(mm / cm / pol)</small></li><li>Diâmetro do furo da junta <small>(mm / cm / pol)</small> <small>· opcional</small></li><li>Pistão abaixo da face do bloco (deck) <small>(mm / cm / pol)</small></li><li>Volume do pistão <small>(cm³)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Volume do cilindro (Vd) = π ÷ 4 × diâmetro² × curso.</p><p>Volume da câmara de combustão (Vc) = câmara do cabeçote + volume da junta + volume do deck + volume do pistão.</p><p>Taxa = (Vd + Vc) ÷ Vc.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Referências comuns: gasolina aspirado 9,5–11:1; flex 11–13:1; turbo 8,5–10,5:1.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li></ul>
+</div></details><details class="calc" id="compression_test" data-search="compressão dos cilindros diferença entre cilindros no teste de compressão motor leitura de cada cilindro">
+<summary><h3>Compressão dos cilindros</h3><div class="sub">Diferença entre cilindros no teste de compressão</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Leitura de cada cilindro <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small> <small>· um por item</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Para cada cilindro: diferença = (maior leitura − leitura do cilindro) ÷ maior leitura × 100.</p><p>Referência comum: até 10% de diferença bom; de 10% a 15% atenção; acima de 15% problema.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Faça com motor quente, borboleta toda aberta, bateria carregada e todas as velas removidas.</li><li>Teste molhado: pingue um pouco de óleo no cilindro baixo e repita. Se subir, desgaste de anéis/cilindro; se não mudar, válvula ou junta.</li><li>Dois cilindros vizinhos baixos sugerem junta do cabeçote queimada entre eles.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="torque_power" data-search="torque ↔ potência converte entre torque e potência numa rotação motor qual valor você tem? torque potência rotação">
+<summary><h3>Torque ↔ potência</h3><div class="sub">Converte entre torque e potência numa rotação</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Qual valor você tem? <small>(Torque | Potência)</small> <small>· escolha</small></li><li>Torque <small>(N·m / kgf·m / lbf·ft)</small></li><li>Potência <small>(cv / hp / kW)</small></li><li>Rotação <small>(rpm)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Potência (kW) = torque (N·m) × rpm ÷ 9.549,3.</p><p>Equivalentes: cv = kgf·m × rpm ÷ 716,2; hp = lbf·ft × rpm ÷ 5.252.</p></div>
+<h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li></ul>
+</div></details><details class="calc" id="piston_speed" data-search="velocidade média do pistão avalia se a rotação é segura para o curso motor curso do pistão rotação">
+<summary><h3>Velocidade média do pistão</h3><div class="sub">Avalia se a rotação é segura para o curso</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Curso do pistão <small>(mm / cm / pol)</small></li><li>Rotação <small>(rpm)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Velocidade média = 2 × curso × rpm ÷ 60.</p><p>Referência: motores de rua até ~20 m/s no corte; acima de ~25 m/s é faixa de competição.</p></div>
+<h4>Fontes</h4><ul class="srcs"><li>Heywood, J. B. — Internal Combustion Engine Fundamentals (McGraw-Hill, 2ª ed., 2018)</li></ul>
+</div></details></section><section class="cat" data-cat="transmissao-e-rodas" id="transmissao-e-rodas"><div class="cat-title"><h2>Transmissão e rodas</h2><span>2</span></div><details class="calc" id="tire_size" data-search="pneu e velocímetro diferença de diâmetro ao trocar pneu ou aro transmissão e rodas original – largura original – perfil original – aro novo – largura novo – perfil novo – aro">
+<summary><h3>Pneu e velocímetro</h3><div class="sub">Diferença de diâmetro ao trocar pneu ou aro</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Original – largura <small>(mm)</small></li><li>Original – perfil <small>(%)</small></li><li>Original – aro <small>(pol)</small></li><li>Novo – largura <small>(mm)</small></li><li>Novo – perfil <small>(%)</small></li><li>Novo – aro <small>(pol)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Diâmetro = aro × 25,4 + 2 × largura × perfil ÷ 100.</p><p>Velocidade real = velocidade no painel × diâmetro novo ÷ diâmetro original.</p><p>Recomendação comum: manter a diferença dentro de ±3%.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Diferença grande altera velocímetro, hodômetro, ABS/controle de estabilidade e pode encostar na caixa de roda.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="rpm_speed" data-search="rpm × velocidade por marcha velocidade esperada e teste de patinação transmissão e rodas rotação relação da marcha relação do diferencial pneu – largura pneu – perfil pneu – aro velocidade lida (scanner ou gps)">
+<summary><h3>Rpm × velocidade por marcha</h3><div class="sub">Velocidade esperada e teste de patinação</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Rotação <small>(rpm)</small></li><li>Relação da marcha <small>(: 1)</small></li><li>Relação do diferencial <small>(: 1)</small></li><li>Pneu – largura <small>(mm)</small></li><li>Pneu – perfil <small>(%)</small></li><li>Pneu – aro <small>(pol)</small></li><li>Velocidade lida (scanner ou GPS) <small>(km/h / mph / m/s)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Velocidade = rpm ÷ (marcha × diferencial) × circunferência do pneu × 60 ÷ 1000.</p><p>Com a velocidade lida, o app calcula a rotação esperada e compara com a real.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Teste em marcha engatada, pé fora da embreagem, em aceleração moderada e reta.</li><li>Em câmbio CVT a relação varia continuamente; use só em marchas fixas.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li><li>Física básica — Lei de Ohm, Bernoulli (vazão ∝ √pressão), cinemática</li></ul>
+</div></details></section><section class="cat" data-cat="eletrica" id="eletrica"><div class="cat-title"><h2>Elétrica</h2><span>5</span></div><details class="calc" id="battery" data-search="bateria, partida e carga estado de carga, queda na partida e alternador elétrica tipo de bateria tensão em repouso menor tensão durante a partida tensão com motor ligado">
+<summary><h3>Bateria, partida e carga</h3><div class="sub">Estado de carga, queda na partida e alternador</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Tipo de bateria <small>(Convencional / EFB | AGM)</small> <small>· escolha</small></li><li>Tensão em repouso <small>(V)</small> <small>· opcional</small></li><li>Menor tensão durante a partida <small>(V)</small> <small>· opcional</small></li><li>Tensão com motor ligado <small>(V)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Estado de carga pela tensão em repouso (bateria a ~25 °C).<br>Convencional: 12,65 V ≈ 100%; 12,45 V ≈ 75%; 12,24 V ≈ 50%; 12,06 V ≈ 25%.<br>AGM: 12,8 V ≈ 100%; 12,6 V ≈ 75%; 12,3 V ≈ 50%; 12,0 V ≈ 25%.</p><p>Partida: não deve cair abaixo de ~9,6 V.</p><p>Carga: 13,5 a 14,8 V é a faixa usual. Alternadores inteligentes variam mais (podem ficar perto de 12,5 V em cruzeiro e passar de 15 V ao frear).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Logo depois de rodar ou carregar, a bateria tem carga superficial: acenda o farol por 1 minuto, desligue e então meça.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Tabelas usuais de estado de carga de baterias chumbo-ácido (convencional e AGM), a ~25 °C</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="parasitic_draw" data-search="consumo parasita fuga de corrente com o carro desligado elétrica corrente medida com o carro dormindo capacidade da bateria carga que pode ser gasta antes de falhar a partida">
+<summary><h3>Consumo parasita</h3><div class="sub">Fuga de corrente com o carro desligado</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Corrente medida com o carro dormindo <small>(mA)</small></li><li>Capacidade da bateria <small>(Ah)</small></li><li>Carga que pode ser gasta antes de falhar a partida <small>(%)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Dias até não dar partida = capacidade (Ah) × reserva ÷ corrente (A) ÷ 24.</p><p>Referência comum: até 50 mA normal; de 50 a 100 mA atenção (alguns carros modernos chegam a ~80 mA); acima de 100 mA é fuga.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Meça depois de travar o carro e esperar os módulos dormirem (20–40 minutos em carros modernos).</li><li>Para achar o circuito, meça a queda de tensão sobre cada fusível (milivolts) em vez de ficar tirando fusíveis — tirar acorda os módulos.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="voltage_drop" data-search="queda de tensão (teste) avalia cabos, terminais e aterramentos elétrica trecho medido queda medida">
+<summary><h3>Queda de tensão (teste)</h3><div class="sub">Avalia cabos, terminais e aterramentos</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Trecho medido <small>(Positivo do motor de partida | Massa / aterramento do motor | Positivo de consumidor (bomba, ventoinha, faróis) | Circuito de sensor (sinal ou referência))</small> <small>· escolha</small></li><li>Queda medida <small>(V)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Com o circuito funcionando (sob carga), o multímetro entre as duas pontas do trecho mostra a tensão perdida no caminho.</p><p>Limites usados (bom / atenção): partida 0,5 / 0,8 V; massa 0,2 / 0,4 V; consumidor 0,3 / 0,6 V; sensor 0,05 / 0,1 V.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Ex.: positivo de partida — ponta vermelha no polo da bateria, preta no terminal do motor de partida, durante a partida.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="wire_gauge" data-search="bitola de fio e fusível seção do cabo pela corrente e comprimento elétrica corrente do consumidor comprimento do fio (ida) retorno tensão do sistema queda máxima aceitável">
+<summary><h3>Bitola de fio e fusível</h3><div class="sub">Seção do cabo pela corrente e comprimento</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Corrente do consumidor <small>(A)</small></li><li>Comprimento do fio (ida) <small>(m / pés)</small></li><li>Retorno <small>(Pela carroceria (massa) | Por fio (ida e volta))</small> <small>· escolha</small></li><li>Tensão do sistema <small>(V)</small></li><li>Queda máxima aceitável <small>(%)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Seção mínima = corrente × 0,0175 × comprimento ÷ queda máxima (cobre, Ω·mm²/m).</p><p>Fusível = próximo valor comercial acima de 1,25 × a corrente; o fio precisa suportar a corrente do fusível.</p><p>Capacidades de corrente aproximadas e conservadoras (cabo de PVC 70 °C). Em local quente ou em chicote fechado, suba uma bitola.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Instale o fusível perto da bateria/fonte: ele protege o fio, não o consumidor.</li></ul><h4>Fontes</h4><ul class="srcs"><li>ISO 6722 — Cabos elétricos automotivos; resistividade do cobre (0,0175 Ω·mm²/m)</li><li>Bosch — Automotive Handbook (Manual de Tecnologia Automotiva)</li></ul>
+</div></details><details class="calc" id="ohm" data-search="lei de ohm e potência preencha dois valores e veja os outros elétrica tensão corrente resistência potência">
+<summary><h3>Lei de Ohm e potência</h3><div class="sub">Preencha dois valores e veja os outros</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Tensão <small>(V)</small> <small>· opcional</small></li><li>Corrente <small>(A)</small> <small>· opcional</small></li><li>Resistência <small>(Ω)</small> <small>· opcional</small></li><li>Potência <small>(W)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>V = R × I    P = V × I    P = R × I²    P = V² ÷ R</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Valores típicos (confirme na documentação do veículo): bico de alta impedância ≈ 11–17 Ω; bico de baixa impedância ≈ 2–5 Ω; primário de bobina ≈ 0,3–2 Ω.</li></ul><h4>Fontes</h4><ul class="srcs"><li>Física básica — Lei de Ohm, Bernoulli (vazão ∝ √pressão), cinemática</li></ul>
+</div></details></section><section class="cat" data-cat="oficina" id="oficina"><div class="cat-title"><h2>Oficina</h2><span>4</span></div><details class="calc" id="ac_pt" data-search="ar-condicionado: pressão × temperatura r134a e r1234yf, superaquecimento e sub-resfriamento oficina gás refrigerante pressão de baixa (manômetro) pressão de alta (manômetro) temperatura ambiente temperatura do tubo de baixa temperatura da linha de líquido">
+<summary><h3>Ar-condicionado: pressão × temperatura</h3><div class="sub">R134a e R1234yf, superaquecimento e sub-resfriamento</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Gás refrigerante <small>(R134a | R1234yf)</small> <small>· escolha</small></li><li>Pressão de baixa (manômetro) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Pressão de alta (manômetro) <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small> <small>· opcional</small></li><li>Temperatura ambiente <small>(°C / °F)</small> <small>· opcional</small></li><li>Temperatura do tubo de baixa <small>(°C / °F)</small> <small>· opcional</small></li><li>Temperatura da linha de líquido <small>(°C / °F)</small> <small>· opcional</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Os manômetros mostram pressão relativa; o app soma a pressão atmosférica da altitude configurada e consulta a tabela de saturação do gás.</p><p>Superaquecimento = temperatura do tubo de baixa − temperatura de evaporação.<br>Sub-resfriamento = temperatura de condensação − temperatura da linha de líquido.</p><p>Referências gerais: evaporação entre −5 e 7 °C; condensação 10 a 25 °C acima do ambiente.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Meça com o motor a 1.500–2.000 rpm, ventilação no máximo, recirculação desligada, portas abertas e o sistema ligado há uns 5 minutos.</li><li>Sempre confira a carga de gás da etiqueta do veículo e a especificação do fabricante.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://coolprop.org/citation.html" rel="noopener">Bell, I. H. et al. — CoolProp (biblioteca de propriedades termofísicas)</a></li><li><a href="https://srd.nist.gov/jpcrdreprint/1.555958.pdf" rel="noopener">Tillner-Roth, R.; Baehr, H. D. — equação de estado do R134a, J. Phys. Chem. Ref. Data 23 (1994)</a></li><li><a href="https://link.springer.com/article/10.1007/s10765-022-03015-y" rel="noopener">Lemmon, E. W. et al. — equação de estado do R1234yf, Int. J. Thermophysics (2022)</a></li><li><a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770009539.pdf" rel="noopener">NOAA/NASA/USAF — U.S. Standard Atmosphere, 1976</a></li></ul>
+</div></details><details class="calc" id="torque_wrench_ext" data-search="torquímetro com extensão valor a ajustar usando pé de galinha ou adaptador oficina torque desejado no parafuso comprimento do torquímetro comprimento da extensão ângulo entre extensão e torquímetro">
+<summary><h3>Torquímetro com extensão</h3><div class="sub">Valor a ajustar usando pé de galinha ou adaptador</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Torque desejado no parafuso <small>(N·m / kgf·m / lbf·ft)</small></li><li>Comprimento do torquímetro <small>(mm / cm / pol)</small></li><li>Comprimento da extensão <small>(mm / cm / pol)</small></li><li>Ângulo entre extensão e torquímetro <small>(°)</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Braço efetivo da extensão = E × cos(ângulo).</p><p>Valor a ajustar = torque desejado × L ÷ (L + E efetivo).</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Com a extensão em esquadro (90°) com o cabo, o braço efetivo é praticamente zero e não precisa corrigir.</li><li>Segure sempre no centro da empunhadura, que é o ponto usado na calibração.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://www.norbar.com/uk_en/torque-wrench-extension-calculator" rel="noopener">Norbar — Torque Wrench Extension Calculator</a></li></ul>
+</div></details><details class="calc" id="bolt_torque" data-search="torque de parafusos (referência) rosca métrica por bitola e classe oficina bitola classe (gravada na cabeça)">
+<summary><h3>Torque de parafusos (referência)</h3><div class="sub">Rosca métrica por bitola e classe</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Bitola <small>(M5 | M6 | M8 | M10 | M12 | M14 | M16)</small> <small>· escolha</small></li><li>Classe (gravada na cabeça) <small>(8.8 | 10.9 | 12.9)</small> <small>· escolha</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Tabela genérica para rosca métrica grossa, parafuso seco ou levemente oleado (atrito ≈ 0,14), apertando a ~90% do limite de escoamento.</p></div>
+<h4>Dicas</h4><ul class="tips"><li>Sempre use o torque do fabricante quando existir. Parafusos de cabeçote, biela, mancal e roda têm especificação própria, muitas vezes com aperto angular.</li><li>Rosca lubrificada com graxa ou com trava química muda o atrito: o mesmo torque gera mais tensão.</li></ul><h4>Fontes</h4><ul class="srcs"><li><a href="https://vdi.de/en/home/vdi-standards/details/vdi-2230-blatt-1-systematic-calculation-of-highly-stressed-bolted-joints-joints-with-one-cylindrical-bolt" rel="noopener">VDI 2230 Parte 1 — Cálculo sistemático de uniões parafusadas</a></li></ul>
+</div></details><details class="calc" id="units" data-search="conversor de unidades pressão, torque, temperatura, potência e mais oficina grandeza valor valor valor valor valor valor valor valor valor valor">
+<summary><h3>Conversor de unidades</h3><div class="sub">Pressão, torque, temperatura, potência e mais</div></summary>
+<div class="body">
+<h4>O que você digita</h4><ul class="inputs"><li>Grandeza <small>(Pressão | Torque | Temperatura | Potência | Comprimento | Volume | Cilindrada | Vazão de ar | Velocidade | Consumo)</small> <small>· escolha</small></li><li>Valor <small>(kPa / bar / psi / kgf/cm² / mmHg / inHg)</small></li><li>Valor <small>(N·m / kgf·m / lbf·ft)</small></li><li>Valor <small>(°C / °F)</small></li><li>Valor <small>(cv / hp / kW)</small></li><li>Valor <small>(mm / cm / pol)</small></li><li>Valor <small>(L / mL / gal (EUA))</small></li><li>Valor <small>(L / cm³ / pol³)</small></li><li>Valor <small>(g/s / kg/h / lb/min)</small></li><li>Valor <small>(km/h / mph / m/s)</small></li><li>Valor <small>(km/L / L/100 km / mpg (EUA))</small></li></ul>
+<h4>Como o cálculo é feito</h4><div class="formula"><p>Toque na unidade do campo para escolher a unidade de origem. Todas as conversões passam por uma unidade base (kPa, N·m, °C, kW, mm, L, cm³, g/s, km/h, km/L).</p></div>
+<h4>Fontes</h4><ul class="srcs"><li>Física básica — Lei de Ohm, Bernoulli (vazão ∝ √pressão), cinemática</li></ul>
+</div></details></section>
+<p class="empty" id="vazio">Nenhuma calculadora encontrada.</p>
+<div class="callout info" style="margin-top:28px"><b>Importante</b>As faixas de referência são valores típicos e
+gerais. Confira sempre a especificação do fabricante do veículo antes de concluir um diagnóstico.
+Veja a lista completa de <a href="index.html#fontes">fontes</a>.</div>
+</div>
+
+</main>
+<footer><div class="wrap">
+  <div>
+    <b>MecPro Calculadoras</b>
+    Calculadoras para o mecânico que usa scanner. Os resultados são estimativas e faixas de referência
+    gerais: confira sempre a especificação do fabricante do veículo.
+    <div class="small">As telas deste site são ilustrações do app e podem ter pequenas diferenças da versão instalada.</div>
+  </div>
+  <div>
+    <b>Site</b>
+    <ul><li><a href="index.html">Como usar</a></li><li><a href="calculadoras.html">Todas as calculadoras</a></li>
+    <li><a href="index.html#fontes">Fontes dos cálculos</a></li><li><a href="privacidade.html">Política de Privacidade</a></li></ul>
+  </div>
+  <div>
+    <b>Links</b>
+    <ul><li><a href="https://play.google.com/store/apps/details?id=br.com.sneakers.mecpro" rel="noopener">MecPro no Google Play</a></li>
+    <li><a href="https://multimecx3.com.br/cursos/?utm_source=mecpro&utm_medium=site&utm_campaign=ajuda" rel="noopener">Cursos MultiMEC PRO</a></li></ul>
+    <div class="small">Fonte Barlow (SIL Open Font License 1.1). Google Play é marca da Google LLC.</div>
+  </div>
+</div></footer>
+<script>
+(function () {
+  var q = document.getElementById('q'), chips = document.querySelectorAll('.chip'), cat = '';
+  var norm = function (s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };
+  var items = Array.prototype.map.call(document.querySelectorAll('.calc'), function (d) {
+    return { el: d, text: norm(d.getAttribute('data-search')), cat: d.parentNode.getAttribute('data-cat') };
+  });
+  function apply() {
+    var words = norm(q.value).split(/\s+/).filter(Boolean), shown = 0;
+    items.forEach(function (it) {
+      var ok = (!cat || it.cat === cat) && words.every(function (w) { return it.text.indexOf(w) >= 0; });
+      it.el.style.display = ok ? '' : 'none'; if (ok) shown++;
+    });
+    document.querySelectorAll('section.cat').forEach(function (s) {
+      var any = s.querySelector('.calc:not([style*="none"])');
+      s.style.display = any ? '' : 'none';
+    });
+    document.getElementById('vazio').style.display = shown ? 'none' : 'block';
+  }
+  q.addEventListener('input', apply);
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      cat = c.getAttribute('data-cat');
+      chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      apply();
+    });
+  });
+  function openHash() {
+    var id = location.hash.slice(1); if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openHash); openHash();
+})();
+</script>
+</body>
+</html>
