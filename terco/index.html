@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terço com Padre Pio — como usar o aplicativo</title>
+<meta name="description" content="Aprenda a usar o Terço com Padre Pio: o Santo Terço guiado conta por conta, a Coroinha de Padre Pio, ladainhas e jaculatórias. Funciona sem internet.">
+<meta property="og:title" content="Terço com Padre Pio">
+<meta property="og:description" content="O Santo Terço guiado, conta por conta, com Padre Pio.">
+<meta property="og:image" content="assets/icone.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icone-192.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <a class="brand" href="./"><img src="assets/icone-192.png" alt="">Terço com Padre Pio</a>
+      <ul>
+        <li class="opt"><a href="#como-usar">Como usar</a></li>
+        <li class="opt"><a href="#perguntas">Perguntas</a></li>
+        <li><a href="privacidade.html">Privacidade</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div>
+        <h1>O Santo Terço, conta por conta, com Padre Pio</h1>
+        <p>O aplicativo mostra um terço desenhado na tela e acende cada conta enquanto você reza. Os mistérios vêm com meditações inspiradas na vida de Padre Pio, e você ainda encontra a Coroinha que ele rezava todos os dias, ladainhas e jaculatórias. Funciona sem internet.</p>
+        <div class="actions">
+          <!-- Troque o endereço abaixo se o identificador do app na Play Store for diferente -->
+          <a class="btn play" href="https://play.google.com/store/apps/details?id=br.com.sneakers.terco">Baixar na Google Play</a>
+          <a class="btn ghost" href="#como-usar">Ver como usar</a>
+        </div>
+      </div>
+      <figure class="rosary" aria-label="Terço desenhado, com a conta atual em dourado">
+        <canvas id="terco"></canvas>
+        <figcaption id="oracao" aria-live="polite"></figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="como-usar">
+    <div class="wrap">
+      <h2>Como rezar o terço no app</h2>
+      <p class="lead">Do primeiro Sinal da Cruz até a Salve-Rainha, o aplicativo guia cada oração. Estes são os passos de um terço completo.</p>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="num">
+            <h3>Escolha os mistérios</h3>
+            <p>Ao abrir o app, a tela inicial já mostra o mistério do dia: Gozosos na segunda e no sábado, Dolorosos na terça e na sexta, Gloriosos na quarta e no domingo, e Luminosos na quinta.</p>
+            <p>Toque em <strong>Rezar o Terço</strong>. Para rezar outros mistérios, abra a aba <strong>Terço</strong> e escolha o que preferir.</p>
+          </div>
+          <div class="phone"><img src="assets/telas/tela-home.webp" alt="Tela inicial com o cartão do mistério do dia e o terço em andamento" loading="lazy" width="412" height="892"></div>
+        </li>
+
+        <li class="step">
+          <div class="num">
+            <h3>Reze acompanhando as contas</h3>
+            <p>O terço aparece desenhado no formato de um terço de verdade. A conta dourada é a oração da vez; as que você já rezou ficam coloridas e as que faltam, mais claras. No centro aparece a contagem da dezena, como "4 de 10".</p>
+            <p>O texto completo de cada oração fica logo abaixo, em letra grande e centralizada.</p>
+          </div>
+          <div class="phone"><img src="assets/telas/tela-rosary.webp" alt="Terço guiado na quarta Ave-Maria do segundo mistério" loading="lazy" width="412" height="892"></div>
+        </li>
+
+        <li class="step noimg">
+          <div class="num">
+            <h3>Avance do jeito mais confortável</h3>
+            <p>Para passar para a próxima oração, use o que for mais prático no momento:</p>
+            <ul>
+              <li>toque em qualquer lugar do terço desenhado;</li>
+              <li>toque no botão <strong>Próxima</strong>, ou na seta para voltar;</li>
+              <li>deslize o texto para o lado;</li>
+              <li>aperte o <strong>botão de volume</strong>: baixar avança e aumentar volta. Assim dá para rezar sem olhar para a tela.</li>
+            </ul>
+            <p>O celular vibra de leve a cada conta e mais forte quando começa um novo mistério. A tela fica acesa enquanto você reza.</p>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="num">
+            <h3>Medite cada mistério</h3>
+            <p>No começo de cada dezena, o app apresenta o mistério com a passagem da Bíblia, uma meditação curta, o fruto do mistério e uma reflexão ligada à vida de Padre Pio.</p>
+            <p>Se preferir mais espaço para o texto, ative o desenho <strong>Compacto</strong> nos Ajustes: ele mostra só as contas da dezena atual.</p>
+          </div>
+          <div class="phone"><img src="assets/telas/tela-mystery.webp" alt="Primeiro Mistério Doloroso com meditação e reflexão com Padre Pio, no modo compacto" loading="lazy" width="412" height="892"></div>
+        </li>
+
+        <li class="step noimg">
+          <div class="num">
+            <h3>Pause e continue depois</h3>
+            <p>Precisou parar? Toque no <strong>X</strong> no alto da tela e confirme. O app guarda a oração em que você estava.</p>
+            <p>Quando voltar, a tela inicial mostra o cartão <strong>Continuar de onde parou</strong>, com o ponto exato do terço. Se você começar outro terço, o app pergunta antes se prefere continuar o que estava em andamento.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="wrap">
+      <h2>Mais para rezar</h2>
+      <p class="lead">Além do terço, o app reúne as devoções que acompanharam Padre Pio.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="phone"><img src="assets/telas/tela-coroinha.webp" alt="Coroinha de Padre Pio com as contas em forma de coração" loading="lazy" width="412" height="892"></div>
+          <h3>A Coroinha de Padre Pio</h3>
+          <p>A Coroinha ao Sagrado Coração de Jesus, que ele rezava todos os dias por quem pedia suas orações. Escreva a sua intenção no início e ela aparece em cada uma das três petições. Ela está na tela inicial e na aba Terço.</p>
+        </div>
+        <div class="feature">
+          <div class="phone"><img src="assets/telas/tela-jaculatorias.webp" alt="Jaculatórias depois do Glória, no tema Mariano escuro" loading="lazy" width="412" height="892"></div>
+          <h3>Jaculatórias e Oração de Fátima</h3>
+          <p>Depois de cada Glória, o app sorteia jaculatórias, sem repetir no mesmo terço. Você escolhe de nenhuma a cinco por dezena e se prefere o "Ó meu Jesus" tradicional ou a versão com pedidos pelo Papa, pelas famílias e pela paz.</p>
+        </div>
+        <div class="feature">
+          <div class="phone"><img src="assets/telas/tela-settings.webp" alt="Tela de ajustes com os temas de cores" loading="lazy" width="412" height="892"></div>
+          <h3>Do seu jeito</h3>
+          <p>Em <strong>Ajustes</strong> você troca o tema (Capuchinho, Mariano, Sagrado Coração, Oliveiras ou Quaresma), usa o modo escuro, aumenta a letra e escolhe se as orações ficam centralizadas, justificadas ou à esquerda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perguntas">
+    <div class="wrap faq">
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>Preciso de internet para usar?</summary>
+        <p>Não. Todas as orações, mistérios, ladainhas e jaculatórias ficam no próprio aplicativo. Depois de instalado, ele funciona em qualquer lugar, até no modo avião.</p>
+      </details>
+      <details>
+        <summary>O aplicativo coleta meus dados?</summary>
+        <p>Não. O app não tem cadastro, não tem anúncios e não envia nada para a internet. Suas preferências e o ponto em que você parou ficam guardados só no seu celular. Os detalhes estão na <a href="privacidade.html">política de privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Posso rezar mistérios diferentes dos do dia?</summary>
+        <p>Pode. Abra a aba <strong>Terço</strong> e toque em <strong>Rezar</strong> no conjunto de mistérios que quiser.</p>
+      </details>
+      <details>
+        <summary>Como incluo a Ladainha de Nossa Senhora no terço?</summary>
+        <p>Em <strong>Ajustes</strong>, na parte Terço guiado, ative <strong>Ladainha de Nossa Senhora</strong>. Ela entra depois da Salve-Rainha a partir do próximo terço. Todas as ladainhas também podem ser lidas na aba <strong>Ladainhas</strong>.</p>
+      </details>
+      <details>
+        <summary>Mudei uma opção, mas o terço continuou igual. Por quê?</summary>
+        <p>As opções de oração valem a partir do próximo terço. Um terço que já estava em andamento continua exatamente como foi começado, com as mesmas jaculatórias, para você retomar sem surpresas.</p>
+      </details>
+      <details>
+        <summary>A letra está pequena. Como aumento?</summary>
+        <p>Em <strong>Ajustes</strong>, na parte Leitura, arraste <strong>Tamanho do texto</strong>. Há uma prévia logo abaixo para você conferir antes de rezar.</p>
+      </details>
+      <details>
+        <summary>As frases de Padre Pio são oficiais?</summary>
+        <p>São frases tradicionalmente atribuídas a ele e muito difundidas entre os devotos, em tradução livre. As meditações e a Ladainha de São Pio foram escritas para o app e são de uso devocional.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="prayer">São Pio de Pietrelcina, rogai por nós.</span>
+    <span><a href="privacidade.html">Política de privacidade</a></span>
+  </div>
+</footer>
+
+<script src="assets/terco.js"></script>
+<script>
+// Abertura: o terço acende as primeiras orações, uma por vez (uma única vez).
+(function () {
+  const canvas = document.getElementById('terco'), caption = document.getElementById('oracao');
+  const seq = [[0, 'Sinal da Cruz'], [0, 'Creio'], [1, 'Pai-Nosso'], [2, 'Ave-Maria'], [3, 'Ave-Maria'], [4, 'Ave-Maria'],
+    [5, 'Glória ao Pai'], [5, '1º Mistério'], [7, 'Ave-Maria, 1 de 10'], [8, 'Ave-Maria, 2 de 10'], [9, 'Ave-Maria, 3 de 10']];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let step = reduce ? seq.length - 1 : 0;
+  function draw() {
+    const r = canvas.parentElement.getBoundingClientRect();
+    const order = [0, 1, 2, 3, 4, 5, 7, 8, 9];
+    const cur = seq[step][0], idx = order.indexOf(cur);
+    drawRosary(canvas, r.width, r.height, cur, i => order.indexOf(i) > -1 && order.indexOf(i) < idx, 'dark', window.devicePixelRatio || 1);
+    canvas.style.width = '100%'; canvas.style.height = '100%';
+    caption.textContent = seq[step][1];
+  }
+  draw();
+  addEventListener('resize', draw);
+  if (!reduce) {
+    const timer = setInterval(() => {
+      if (step >= seq.length - 1) { clearInterval(timer); return; }
+      step++; draw();
+    }, 900);
+  }
+})();
+</script>
+</body>
+</html>
