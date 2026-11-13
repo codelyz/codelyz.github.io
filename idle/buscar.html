@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0f1420">
+<meta name="description" content="Página inicial do Idle Browser: IdleServList, Google e DuckDuckGo.">
+<title>Buscar · Idle Browser</title>
+<link rel="icon" href="icone.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #0f1420; --card: #182033; --card-hover: #1f2940; --line: #2a3550;
+    --text: #e8ecf4; --muted: #9aa6bf; --accent: #8ab4f8;
+    --blue: #1e88e5; --red: #e53935; --green: #43a047; --orange: #fb8c00;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f4f6fb; --card: #ffffff; --card-hover: #eef2fa; --line: #d9dfeb;
+      --text: #141a26; --muted: #5b6579; --accent: #1565c0;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+    font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: max(20px, env(safe-area-inset-top)) 16px 32px;
+  }
+  main { max-width: 560px; margin: 0 auto; }
+  header { display: flex; align-items: center; gap: 10px; margin: 8px 0 20px; }
+  header h1 { font-size: 20px; margin: 0; font-weight: 650; letter-spacing: -0.01em; }
+  header img { flex: none; border-radius: 8px; }
+  form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  input[type="search"] {
+    width: 100%; height: 52px; padding: 0 18px; font-size: 17px; color: var(--text);
+    background: var(--card); border: 1px solid var(--line); border-radius: 26px; outline: none;
+    -webkit-appearance: none; appearance: none;
+  }
+  input[type="search"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+  .engines { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  button {
+    height: 44px; border-radius: 22px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: inherit; font-weight: 600; cursor: pointer;
+  }
+  button:active, a.card:active { background: var(--card-hover); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+  .list { display: grid; gap: 10px; margin-bottom: 24px; }
+  a.card {
+    display: flex; align-items: center; gap: 14px; padding: 14px 16px; min-height: 64px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent;
+  }
+  a.card.main { padding: 18px 16px; border-color: color-mix(in srgb, var(--green) 55%, var(--line)); }
+  .badge {
+    flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+    font-weight: 700; font-size: 18px; color: #fff;
+  }
+  .card strong { display: block; font-size: 17px; }
+  .card .sub { display: block; color: var(--muted); font-size: 14px; }
+  .card .go { margin-left: auto; color: var(--muted); font-size: 22px; line-height: 1; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="icone.svg" width="32" height="32" alt="">
+    <h1>Nova aba</h1>
+  </header>
+
+  <!-- Funciona sem JavaScript: cada botão envia "q" para o buscador. O script só trata endereços digitados. -->
+  <form id="busca" action="https://www.google.com/search" method="get" role="search">
+    <input id="q" type="search" name="q" placeholder="Buscar ou digitar endereço"
+           autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"
+           aria-label="Buscar ou digitar endereço">
+    <div class="engines">
+      <button type="submit" formaction="https://www.google.com/search" data-engine="google">Google</button>
+      <button type="submit" formaction="https://duckduckgo.com/" data-engine="ddg">DuckDuckGo</button>
+    </div>
+  </form>
+
+  <h2>Jogos</h2>
+  <div class="list">
+    <a class="card main" href="https://idleservlist.com/">
+      <span class="badge" style="background:var(--green)">I</span>
+      <div><strong>IdleServList</strong><span class="sub">Lista de jogos idle do Brasil e do mundo, com status e jogadores online</span></div>
+      <span class="go" aria-hidden="true">›</span>
+    </a>
+  </div>
+
+  <h2>Buscadores</h2>
+  <div class="list">
+    <a class="card" href="https://www.google.com/">
+      <span class="badge" style="background:var(--blue)">G</span>
+      <div><strong>Google</strong><span class="sub">google.com</span></div>
+      <span class="go" aria-hidden="true">›</span>
+    </a>
+    <a class="card" href="https://duckduckgo.com/">
+      <span class="badge" style="background:var(--orange)">D</span>
+      <div><strong>DuckDuckGo</strong><span class="sub">duckduckgo.com</span></div>
+      <span class="go" aria-hidden="true">›</span>
+    </a>
+  </div>
+
+  <footer>Cada aba do Idle Browser é uma conta separada. Ao abrir um jogo, a aba ganha o nome dele.</footer>
+</main>
+<script>
+  (function () {
+    var form = document.getElementById("busca");
+    var input = document.getElementById("q");
+    var engines = {
+      google: "https://www.google.com/search?q=",
+      ddg: "https://duckduckgo.com/?q="
+    };
+    var last = "google";
+    try { last = localStorage.getItem("idlebrowser.engine") || "google"; } catch (e) {}
+
+    // "exemplo.com", "http://..." ou "192.168.0.1:8080" viram endereço; o resto vira busca.
+    function asUrl(text) {
+      if (/^[a-z][a-z0-9+.-]*:\/\//i.test(text)) return text;
+      if (!/\s/.test(text) && /^[^\s/]+\.[^\s/]{2,}(\/.*)?$/.test(text)) return "https://" + text;
+      return null;
+    }
+
+    function go(engine) {
+      var text = input.value.trim();
+      if (!text) { input.focus(); return; }
+      last = engines[engine] ? engine : "google";
+      try { localStorage.setItem("idlebrowser.engine", last); } catch (e) {}
+      location.href = asUrl(text) || engines[last] + encodeURIComponent(text);
+    }
+
+    // Botões usam o buscador tocado; a tecla Enter/Ir usa o último buscador escolhido.
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      go(event.submitter && event.submitter.dataset.engine);
+    });
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") { event.preventDefault(); go(last); }
+    });
+  })();
+</script>
+</body>
+</html>
