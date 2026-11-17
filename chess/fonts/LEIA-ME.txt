@@ -1,0 +1,5 @@
+As fontes desta pasta são um subconjunto (só letras latinas) da família
+TeX Gyre Schola, de B. Jackowski e J. M. Nowacki (GUST), distribuída sob a
+GUST Font License (veja GUST-FONT-LICENSE.txt). Por serem uma versão
+modificada, foram renomeadas para "XSM Escolar".
+Original: https://www.gust.org.pl/projects/e-foundry/tex-gyre/schola
