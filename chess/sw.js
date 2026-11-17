@@ -1,6 +1,6 @@
 // Service worker: guarda os arquivos do app para funcionar sem internet.
 // Ao mudar qualquer arquivo, aumente a versão abaixo para os aparelhos baixarem a nova.
-const CACHE = 'xadrez-sob-medida-v2';
+const CACHE = 'xadrez-sob-medida-v3';
 const FILES = [
   './',
   './index.html',
@@ -27,6 +27,7 @@ const FILES = [
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './img/para-will.jpg',
 ];
 
 self.addEventListener('install', (e) => {

@@ -71,7 +71,13 @@ export function createLibrary(app) {
     presetSec.appendChild(plist);
 
     const drop = h('p', { class: 'drop-hint' }, h('span', { html: icon('file') }), 'Também dá para arrastar um arquivo de regras (.json) para esta página.');
-    root.replaceChildren(intro, mineSec, presetSec, drop);
+    const dedic = h(
+      'figure',
+      { class: 'dedic' },
+      h('img', { src: 'img/para-will.jpg', alt: 'Will jogando xadrez, em pixel art', width: 314, height: 314, loading: 'lazy' }),
+      h('figcaption', null, 'Para Will'),
+    );
+    root.replaceChildren(intro, mineSec, presetSec, drop, dedic);
   }
 
   function row(rules, { item, preset }) {

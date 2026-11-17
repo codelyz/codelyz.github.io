@@ -29,13 +29,13 @@ let themeSetByApp = false;
 const media = typeof matchMedia !== 'undefined' ? matchMedia('(prefers-color-scheme: dark)') : null;
 function effectiveTheme() {
   const attr = document.documentElement.getAttribute('data-theme');
-  if (attr === 'dark' || attr === 'light') return attr;
+  if (attr === 'dark' || attr === 'light' || attr === 'turbo') return attr;
   return media && media.matches ? 'dark' : 'light';
 }
 function applyTheme() {
   const t = settings.data.theme;
   const html = document.documentElement;
-  if (t === 'light' || t === 'dark') {
+  if (t === 'light' || t === 'dark' || t === 'turbo') {
     html.setAttribute('data-theme', t);
     themeSetByApp = true;
   } else if (themeSetByApp) {
@@ -43,10 +43,11 @@ function applyTheme() {
     themeSetByApp = false;
   }
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute('content', effectiveTheme() === 'dark' ? '#1d2826' : '#eef1f5');
+  const eff = effectiveTheme();
+  if (meta) meta.setAttribute('content', eff === 'dark' ? '#1d2826' : eff === 'turbo' ? '#1b5fd1' : '#eef1f5');
   const tb = document.getElementById('theme-btn');
   if (tb) {
-    const dark = effectiveTheme() === 'dark';
+    const dark = eff !== 'light';
     tb.innerHTML = icon(dark ? 'sun' : 'moon');
     tb.setAttribute('aria-label', dark ? 'Usar tema claro' : 'Usar tema escuro');
     tb.title = dark ? 'Tema claro' : 'Tema escuro';
@@ -84,7 +85,7 @@ function buildShell() {
     });
   });
   const themeBtn = h('button', { type: 'button', class: 'icon-btn', id: 'theme-btn', onclick: () => {
-    settings.set({ theme: effectiveTheme() === 'dark' ? 'light' : 'dark' });
+    settings.set({ theme: effectiveTheme() === 'light' ? 'dark' : 'light' });
     applyTheme();
   } });
   const gearBtn = h('button', { type: 'button', class: 'icon-btn', 'aria-label': 'Ajustes', title: 'Ajustes', onclick: openSettings });
@@ -445,6 +446,7 @@ function openSettings() {
         { value: 'auto', label: 'Automático' },
         { value: 'light', label: 'Claro' },
         { value: 'dark', label: 'Escuro' },
+        { value: 'turbo', label: 'Turbo' },
       ],
       s.theme,
       (v) => {

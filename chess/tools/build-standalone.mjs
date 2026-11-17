@@ -64,7 +64,7 @@ const b64 = (p) => fs.readFileSync(path.join(root, p)).toString('base64');
 let css = read('css/app.css');
 css = css.replace(/url\('\.\.\/fonts\/([\w-]+\.woff)'\)/g, (_, f) => `url(data:font/woff;base64,${b64('fonts/' + f)})`);
 
-const app = bundle('main');
+const app = bundle('main').replace(/'img\/para-will\.jpg'/g, `'data:image/jpeg;base64,${b64('img/para-will.jpg')}'`);
 const worker = bundle('ai-worker');
 for (const [n, c] of [['app', app], ['robô', worker], ['css', css]]) {
   if (/<\/script/i.test(c) || /<\/style/i.test(c)) throw new Error(`O código de ${n} contém uma tag de fechamento proibida.`);
