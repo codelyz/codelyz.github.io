@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Acende · luzes e sons para bebês</title>
+  <meta name="description" content="Brinquedo de causa e efeito para crianças de até 2 anos. Funciona com toque, joystick e teclado ou acionador.">
+  <meta name="theme-color" content="#0d1030">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Acende">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="stage" aria-label="Área de brincar"></canvas>
+
+  <button id="gear" class="gear" tabindex="-1" aria-label="Menu do adulto: segure por 2 segundos" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="3.4"/>
+      <g fill="currentColor">
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(45 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(90 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(135 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(180 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(225 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(270 12 12)"/>
+        <rect x="10.4" y="1.6" width="3.2" height="4.4" rx="1" transform="rotate(315 12 12)"/>
+      </g>
+    </svg>
+  </button>
+
+  <div id="toast" class="chip toast" role="status" aria-live="polite" hidden></div>
+  <div id="audioHint" class="chip audio-hint" hidden>🔇 Toque na tela uma vez para ligar o som</div>
+  <div id="endChip" class="chip end-chip" hidden>Fim da brincadeira 🌙 · segure ⚙ (ou Select + Start) para continuar</div>
+
+  <!-- Tela inicial (para o adulto) -->
+  <section id="start" class="overlay start">
+    <div class="card">
+      <div class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <h1>Acende</h1>
+      <p class="lead">Luzes, cores e sons que respondem a cada toque. Feito para brincar <strong>junto</strong> com crianças de até 2 anos.</p>
+      <button id="startBtn" class="btn primary big">Começar <span id="startMode" class="start-mode"></span></button>
+      <button id="startMenuBtn" class="btn ghost">Escolher brincadeira e ajustes</button>
+      <ul class="how">
+        <li><b>Toque</b> em qualquer lugar da tela</li>
+        <li><b>Joystick</b>: qualquer botão (Xbox, PlayStation e genéricos)</li>
+        <li><b>Teclado ou acionador</b>: setas, espaço ou Enter</li>
+      </ul>
+      <p class="fine">Para abrir o menu do adulto durante a brincadeira: segure ⚙ no canto por 2 segundos, ou Select + Start no controle, ou Esc no teclado.</p>
+    </div>
+  </section>
+
+  <!-- Menu do adulto -->
+  <section id="menu" class="overlay menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle" hidden>
+    <div class="panel">
+      <header class="menu-head">
+        <h2 id="menuTitle">Menu do adulto</h2>
+        <button id="closeMenu" class="btn primary">Voltar a brincar</button>
+      </header>
+
+      <h3>Brincadeira</h3>
+      <div class="modes">
+        <button class="mode-card" data-mode="cores">
+          <svg class="mi" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="9" r="7" fill="#FFC83D"/><circle cx="39" cy="24" r="7" fill="#F0524B"/><circle cx="24" cy="39" r="7" fill="#4CC35A"/><circle cx="9" cy="24" r="7" fill="#3E8EF7"/></svg>
+          <strong>Cores</strong>
+          <span>Cada botão acende sua cor. Segurar mantém aceso; o gatilho faz o sol crescer.</span>
+        </button>
+        <button class="mode-card" data-mode="siga">
+          <svg class="mi" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#4CC35A" opacity=".25"/><circle cx="24" cy="24" r="11" fill="#4CC35A"/><circle cx="8" cy="8" r="4" fill="#ffffff" opacity=".3"/><circle cx="40" cy="40" r="4" fill="#ffffff" opacity=".3"/></svg>
+          <strong>Siga a luz</strong>
+          <span>Uma luz chama devagar; apertou nela, é festa. A partir de uns 18 meses.</span>
+        </button>
+        <button class="mode-card" data-mode="bolhas">
+          <svg class="mi" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="28" r="12" fill="none" stroke="#9fd8ff" stroke-width="3"/><circle cx="34" cy="14" r="8" fill="none" stroke="#ffc4e6" stroke-width="3"/><circle cx="36" cy="34" r="5" fill="none" stroke="#fff" stroke-width="3"/></svg>
+          <strong>Bolhas</strong>
+          <span>Toque para soprar e estourar. O analógico move a varinha e o gatilho enche uma bolha gigante.</span>
+        </button>
+        <button class="mode-card" data-mode="dianoite">
+          <svg class="mi" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="20" r="11" fill="#FFC83D"/><path d="M34 10a12 12 0 1 0 8 21 10 10 0 0 1-8-21z" fill="#F4EBC6"/><path d="M0 40q24-12 48 0v8H0z" fill="#6cc46a"/></svg>
+          <strong>Dia e noite</strong>
+          <span>Qualquer toque troca o dia pela noite, e a janela da casinha acende.</span>
+        </button>
+      </div>
+
+      <h3>Ajustes</h3>
+      <div class="settings">
+        <label class="row" for="volume"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05"></label>
+        <div class="row"><span>Tempo de brincadeira</span>
+          <div class="seg" id="sessionSeg">
+            <button data-v="3">3 min</button><button data-v="5">5 min</button><button data-v="10">10 min</button><button data-v="15">15 min</button><button data-v="0">Sem limite</button>
+          </div>
+        </div>
+        <div class="row"><span>Cores do controle</span>
+          <div class="seg" id="paletteSeg">
+            <button data-v="auto">Automático</button><button data-v="xbox">Xbox</button><button data-v="playstation">PlayStation</button>
+          </div>
+        </div>
+        <div class="row"><span>Vibração</span><button class="toggle" id="vibToggle" role="switch" aria-checked="true" aria-label="Vibração"></button></div>
+        <div class="row"><span>Modo calmo <small>menos brilho e partículas</small></span><button class="toggle" id="calmToggle" role="switch" aria-checked="false" aria-label="Modo calmo"></button></div>
+        <div class="row"><span>Tela cheia</span><button class="btn small" id="fsBtn">Entrar em tela cheia</button></div>
+      </div>
+
+      <p class="status" id="status"></p>
+
+      <details class="tips">
+        <summary>Dicas para brincar junto</summary>
+        <ul>
+          <li>Narre o que acontece: “Verde! Acendeu! Apagou!”. A conversa é a parte mais importante.</li>
+          <li>Sessões curtas: o app termina sozinho no tempo escolhido, com a lua dormindo.</li>
+          <li>Prenda a tela no app: no iPhone/iPad, <em>Ajustes › Acessibilidade › Acesso Guiado</em>; no Android, <em>Fixar app</em>.</li>
+          <li>No iPhone/iPad, a chave de silencioso pode desligar o som do app.</li>
+          <li>Instale na tela inicial para abrir em tela cheia e funcionar sem internet.</li>
+          <li>Botões grandes de fliperama ligados a uma placa USB funcionam como joystick e são ótimos para mãos pequenas.</li>
+        </ul>
+      </details>
+      <p class="fine version">Acende v1.0 · nenhum dado sai do aparelho</p>
+    </div>
+  </section>
+
+  <noscript><p class="noscript">O Acende precisa de JavaScript ligado.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
