@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chess Box — Torneios, relógio e súmula de xadrez</title>
+<meta name="description" content="Chess Box: app Android gratuito para organizar torneios de xadrez (suíço, todos contra todos, mata-mata), com relógio, súmula e ferramentas de arbitragem. Funciona sem internet.">
+<meta property="og:title" content="Chess Box — Torneios, relógio e súmula de xadrez">
+<meta property="og:description" content="Organize torneios de xadrez no celular, sem internet e sem anúncios.">
+<meta property="og:image" content="img/icon.png">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site"><div class="in">
+  <a class="brand" href="./"><img src="img/icon.png" alt="">Chess Box</a>
+  <nav>
+    <a href="#torneio">Torneios</a>
+    <a href="#relogio">Relógio</a>
+    <a href="#planilha">Planilha</a>
+    <a href="#ferramentas">Ferramentas</a>
+    <a href="#perguntas">Dúvidas</a>
+    <a href="privacidade.html">Privacidade</a>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="in">
+  <div>
+    <h1>Torneios de xadrez, do primeiro lance ao pódio.</h1>
+    <p>Emparceiramento suíço, todos contra todos e mata-mata, relógio de xadrez, súmula e ferramentas de arbitragem — tudo no celular ou tablet.</p>
+    <div class="badges">
+      <span class="badge">Funciona sem internet</span>
+      <span class="badge">Sem anúncios</span>
+      <span class="badge">Sem cadastro</span>
+      <span class="badge">Android 8 ou mais novo</span>
+    </div>
+  </div>
+  <div class="phones">
+    <img src="img/02_rodada.webp" alt="Tela de rodada com as mesas e resultados">
+    <img src="img/04_relogio.webp" alt="Relógio de xadrez">
+  </div>
+</div></div>
+
+<main>
+
+<section id="inicio">
+  <h2>Como usar</h2>
+  <p class="lead">Este guia mostra o caminho de um torneio inteiro e o uso das ferramentas. Toque num tópico para ir direto a ele.</p>
+  <ul class="toc">
+    <li><a href="#torneio">1. Criar um torneio<span>Sistema, rodadas e desempates</span></a></li>
+    <li><a href="#inscricoes">2. Inscrever jogadores<span>Na hora, pelo cadastro ou por planilha</span></a></li>
+    <li><a href="#rodadas">3. Rodadas e resultados<span>Gerar, lançar e corrigir</span></a></li>
+    <li><a href="#manual">4. Ajustes do árbitro<span>Byes, retiradas e edição manual</span></a></li>
+    <li><a href="#classificacao">5. Classificação<span>Desempates e rating</span></a></li>
+    <li><a href="#exportar">6. Publicar e exportar<span>WhatsApp, PDF, TRF, PGN, projetor</span></a></li>
+    <li><a href="#relogio">7. Relógio<span>Ritmos, períodos e árbitro</span></a></li>
+    <li><a href="#planilha">8. Planilha e tabuleiro<span>Anotar partidas e gerar PGN</span></a></li>
+    <li><a href="#ferramentas">9. Ferramentas<span>Rating, Berger, Xadrez960, regras</span></a></li>
+    <li><a href="#temas">10. Temas e backup<span>Aparência e cópia de segurança</span></a></li>
+  </ul>
+</section>
+
+<section id="torneio">
+  <div class="split">
+    <div>
+      <h2>1. Criar um torneio</h2>
+      <ol class="steps">
+        <li>Na aba <b>Torneios</b>, toque em <b>Novo torneio</b>.</li>
+        <li>Dê um nome e escolha o sistema:
+          <table>
+            <tr><th>Sistema</th><th>Quando usar</th></tr>
+            <tr><td>Sistema Suíço</td><td>Muitos jogadores e poucas rodadas. Ninguém é eliminado.</td></tr>
+            <tr><td>Todos contra todos</td><td>Grupos pequenos: cada um enfrenta todos (tabelas Berger da FIDE).</td></tr>
+            <tr><td>Turno e returno</td><td>Todos contra todos duas vezes, com as cores invertidas.</td></tr>
+            <tr><td>Eliminatória (mata-mata)</td><td>Quem perde sai. A chave é montada pelo rating.</td></tr>
+          </table>
+        </li>
+        <li>No suíço, defina o número de rodadas. O app sugere um número que costuma apontar um campeão isolado.</li>
+        <li>Opcional: cidade, datas, árbitro, organizador e descrição do ritmo (aparecem nos relatórios), pontuação (1-½-0, 3-1-0…) e a ordem dos desempates.</li>
+        <li>Toque em <b>Criar torneio</b>.</li>
+      </ol>
+      <div class="tip"><b>Opções do suíço.</b> <i>Rodadas aceleradas</i> faz os favoritos se enfrentarem antes; <i>Evitar jogadores do mesmo clube</i> separa colegas de clube sempre que isso não fere as regras principais.</div>
+    </div>
+    <div class="shot"><img src="img/01_torneios.webp" alt="Lista de torneios"></div>
+  </div>
+</section>
+
+<section id="inscricoes">
+  <h2>2. Inscrever jogadores</h2>
+  <p>Dentro do torneio, abra a aba <b>Jogadores</b>:</p>
+  <ul>
+    <li><b>Inscrever</b> — digite nome, rating, título, clube e demais dados.</li>
+    <li><b>Inscrever do cadastro</b> — escolha jogadores já cadastrados na aba principal <b>Jogadores</b>. É o jeito mais rápido para torneios do clube que se repetem.</li>
+    <li><b>Importar planilha</b> — na aba principal <b>Jogadores</b>, importe um arquivo CSV salvo no Excel ou no Google Planilhas. Colunas reconhecidas: Nome, Rating (ou Elo), Título, Fed, Clube, FIDE ID, Nascimento, Sexo.</li>
+  </ul>
+  <p>O número inicial de cada jogador (cabeça de chave) segue o rating. No suíço dá para inscrever atrasados mesmo depois da 1ª rodada.</p>
+</section>
+
+<section id="rodadas">
+  <div class="split rev">
+    <div class="shot"><img src="img/02_rodada.webp" alt="Rodada com resultados lançados"></div>
+    <div>
+      <h2>3. Rodadas e resultados</h2>
+      <ol class="steps">
+        <li>Na aba <b>Rodadas</b>, toque em <b>Gerar rodada 1</b>. No todos-contra-todos aparece <b>Gerar tabela completa</b>, que cria todas as rodadas de uma vez.</li>
+        <li>Em cada mesa, toque em <b>1-0</b>, <b>½-½</b> ou <b>0-1</b>. A barra mostra quantos resultados faltam.</li>
+        <li>Para W.O., use o menu <b>⋮</b> da mesa: <i>Brancas vencem por W.O.</i>, <i>Pretas vencem por W.O.</i> ou <i>W.O. duplo</i>.</li>
+        <li>Com todos os resultados lançados, gere a próxima rodada.</li>
+      </ol>
+      <div class="tip"><b>Errou algo?</b> O botão <b>Desfazer</b> (seta curva no topo) volta a última ação do torneio: um resultado, uma rodada gerada, uma inscrição.</div>
+      <p>Cada rodada suíça passa por uma <b>auditoria</b>: o cartão no topo avisa se houve reencontro, cor forçada ou bye repetido. Quando tudo está certo, aparece <i>Emparceiramento sem violações</i>.</p>
+      <p>No <b>mata-mata</b>, se a partida terminar empatada, o app pergunta quem avança (depois do desempate rápido ou Armageddon que vocês jogarem).</p>
+    </div>
+  </div>
+</section>
+
+<section id="manual">
+  <h2>4. Ajustes do árbitro</h2>
+  <h3>Bye e folga</h3>
+  <p>Com número ímpar de jogadores, o suíço dá o bye automaticamente para quem ainda não recebeu. Para dar <b>bye de ½ ponto</b> a quem avisou que vai faltar, abra o jogador na aba <b>Jogadores</b> e marque as rodadas.</p>
+  <h3>Retirar um jogador</h3>
+  <p>Abra o jogador e use <b>Retirar do torneio</b>. Ele não é mais emparceirado, mas os resultados já jogados continuam valendo.</p>
+  <h3>Editar o emparceiramento à mão</h3>
+  <ol class="steps">
+    <li>Na rodada, toque no ícone de <b>troca</b> ao lado do número da rodada para entrar no modo de edição.</li>
+    <li>Toque em um jogador e depois em outro: os dois trocam de mesa.</li>
+    <li>Use <b>Inverter cores</b>, <b>Criar mesa</b> ou <b>Dar bye</b> para os jogadores que ficaram sem mesa.</li>
+    <li>Toque em <b>Concluir</b>. A auditoria confere a rodada editada e avisa se alguma regra foi quebrada.</li>
+  </ol>
+  <p>Use <b>Achar jogador / mesa</b> para localizar alguém rapidamente em torneios grandes.</p>
+</section>
+
+<section id="classificacao">
+  <div class="split">
+    <div>
+      <h2>5. Classificação</h2>
+      <p>A aba <b>Classificação</b> mostra pontos e desempates na ordem escolhida. Dá para ver a classificação depois de qualquer rodada.</p>
+      <table>
+        <tr><th>Sigla</th><th>Critério</th></tr>
+        <tr><td>BH</td><td>Buchholz: soma dos pontos dos adversários</td></tr>
+        <tr><td>BH-C1</td><td>Buchholz sem o pior adversário</td></tr>
+        <tr><td>BH-M</td><td>Buchholz mediano: sem o pior e o melhor</td></tr>
+        <tr><td>SB</td><td>Sonneborn-Berger: pontos dos adversários que você venceu (e metade dos que empatou)</td></tr>
+        <tr><td>CD</td><td>Confronto direto entre os empatados</td></tr>
+        <tr><td>Vit / Pr</td><td>Número de vitórias / partidas de pretas</td></tr>
+        <tr><td>ARO / TPR</td><td>Rating médio dos adversários / performance</td></tr>
+        <tr><td>Koya, Prog</td><td>Sistema Koya / pontuação progressiva</td></tr>
+      </table>
+      <p>A aba <b>Tabela</b> traz a tabela cruzada. Ao encerrar, o app pode aplicar a <b>variação de rating</b> (fórmula Elo da FIDE, com o fator K de cada jogador) ao cadastro geral.</p>
+    </div>
+    <div class="shot"><img src="img/03_classificacao.webp" alt="Classificação com desempates"></div>
+  </div>
+</section>
+
+<section id="exportar">
+  <h2>6. Publicar e exportar</h2>
+  <p>Na aba <b>Resumo</b> do torneio:</p>
+  <table>
+    <tr><th>Opção</th><th>Para quê</th></tr>
+    <tr><td>Compartilhar classificação</td><td>Texto pronto para WhatsApp ou Telegram</td></tr>
+    <tr><td>Imprimir ou salvar PDF</td><td>Classificação, tabela cruzada, rodadas e estatísticas para afixar no mural</td></tr>
+    <tr><td>Relatório HTML</td><td>Página para publicar no site do clube</td></tr>
+    <tr><td>Arquivo TRF (FIDE)</td><td>Formato oficial da FIDE: abre no Swiss-Manager e no Vega e serve para homologação de rating</td></tr>
+    <tr><td>Partidas em PGN</td><td>Todas as partidas anotadas, para ChessBase, Lichess etc.</td></tr>
+    <tr><td>Planilha CSV</td><td>Classificação completa para Excel ou Google Planilhas</td></tr>
+    <tr><td>Duplicar torneio</td><td>Mesmos inscritos e regras, sem rodadas — ideal para torneios semanais</td></tr>
+  </table>
+  <h3>Modo projetor</h3>
+  <p>Ligue o tablet ou o celular a uma TV e abra o <b>modo projetor</b>: emparceiramento e classificação em letras grandes, com rolagem automática para listas longas.</p>
+  <div class="wide"><img src="img/tablet_projetor.webp" alt="Modo projetor em tablet"></div>
+  <div class="tip"><b>Importar TRF.</b> Na lista de torneios, <b>Importar TRF</b> abre torneios criados em outros programas.</div>
+</section>
+
+<section id="relogio">
+  <div class="split rev">
+    <div class="shot"><img src="img/04_relogio.webp" alt="Relógio de xadrez"></div>
+    <div>
+      <h2>7. Relógio</h2>
+      <ol class="steps">
+        <li>Na aba <b>Relógio</b>, escolha um ritmo pronto (bullet, blitz, rápido, clássico FIDE, delay dos EUA, Armageddon, ampulheta…) ou toque em <b>Criar controle personalizado</b>.</li>
+        <li>Coloque o celular entre os jogadores. Quem joga de <b>pretas</b> toca no seu lado para iniciar o relógio das brancas.</li>
+        <li>Depois de cada lance, toque no <b>seu</b> lado. O relógio do adversário começa a contar.</li>
+      </ol>
+      <table>
+        <tr><th>Modo</th><th>Como funciona</th></tr>
+        <tr><td>Incremento (Fischer)</td><td>Ganha o acréscimo inteiro a cada lance</td></tr>
+        <tr><td>Bronstein</td><td>Devolve o tempo gasto no lance, até o limite do acréscimo</td></tr>
+        <tr><td>Delay</td><td>O relógio espera alguns segundos antes de descontar (há uma barra mostrando o delay)</td></tr>
+        <tr><td>Vários períodos</td><td>Ex.: 90 min para 40 lances + 30 min, com +30 s por lance</td></tr>
+        <tr><td>Ampulheta</td><td>O tempo que você gasta passa para o adversário</td></tr>
+      </table>
+      <p>Na barra do meio: pausar, reiniciar, <b>ajustes do árbitro</b> (somar ou tirar tempo, corrigir número de lances), <b>estatísticas</b> por lance e som.</p>
+      <div class="tip"><b>Relógio ligado à mesa.</b> No cartão de uma mesa do torneio, use <b>Abrir relógio</b>. Ao final, <b>Lançar resultado</b> envia o resultado direto para o torneio.</div>
+    </div>
+  </div>
+</section>
+
+<section id="planilha">
+  <div class="split">
+    <div>
+      <h2>8. Planilha e tabuleiro</h2>
+      <p>Anote partidas de duas formas:</p>
+      <ul>
+        <li><b>Tocando no tabuleiro:</b> toque na peça e depois na casa de destino. Roque, en passant e promoção são reconhecidos.</li>
+        <li><b>Digitando:</b> no campo <i>Digitar lances</i>, escreva vários lances de uma vez, em português (<code>e4 e5 Cf3 Cc6 O-O</code>) ou em inglês (<code>Nf3 Nc6</code>). Ideal para passar a súmula de papel para o celular.</li>
+      </ul>
+      <p>O app avisa xeque, mate, afogamento, material insuficiente, tripla repetição e regra dos 50 lances. Use as setas para rever a partida; um lance novo no meio substitui a continuação.</p>
+      <p>Pelo menu <b>⋮</b>: copiar ou compartilhar o PGN, salvar arquivo <code>.pgn</code>, colar um PGN, copiar o FEN ou começar de uma posição.</p>
+      <div class="tip"><b>Partida do torneio.</b> Abra a mesa pelo cartão da rodada (<b>Planilha / PGN da partida</b>). Ao salvar, os lances e o resultado ficam guardados na mesa e entram na exportação PGN do torneio.</div>
+    </div>
+    <div class="shot"><img src="img/05_planilha.webp" alt="Planilha e tabuleiro"></div>
+  </div>
+  <div class="wide"><img src="img/tablet_planilha.webp" alt="Planilha no tablet com o tabuleiro e os lances lado a lado"></div>
+</section>
+
+<section id="ferramentas">
+  <div class="split rev">
+    <div class="shot"><img src="img/06_ferramentas.webp" alt="Ferramentas"></div>
+    <div>
+      <h2>9. Ferramentas</h2>
+      <table>
+        <tr><th>Ferramenta</th><th>O que faz</th></tr>
+        <tr><td>Partidas salvas</td><td>Guarda partidas avulsas; importa e exporta PGN com várias partidas</td></tr>
+        <tr><td>Calculadora de rating</td><td>Variação Elo pela fórmula da FIDE, pontuação esperada e performance</td></tr>
+        <tr><td>Planejador de torneio</td><td>Rodadas, mesas e duração estimada para cada sistema e ritmo</td></tr>
+        <tr><td>Tabelas Berger</td><td>Emparceiramento oficial do todos-contra-todos, de 3 a 24 jogadores</td></tr>
+        <tr><td>Xadrez960</td><td>Sorteia uma das 960 posições iniciais, com número e FEN</td></tr>
+        <tr><td>Sorteio de cores</td><td>Cara ou coroa para decidir quem joga de brancas</td></tr>
+        <tr><td>Guia rápido do árbitro</td><td>Resumo das Leis do Xadrez da FIDE: lance ilegal, tempo, empates, celular</td></tr>
+        <tr><td>Tabuleiro de análise</td><td>Monte qualquer posição colando um FEN</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="temas">
+  <div class="split">
+    <div>
+      <h2>10. Temas e backup</h2>
+      <p>Em <b>Ajustes</b>:</p>
+      <ul>
+        <li><b>Aparência:</b> claro, escuro ou seguir o sistema; preto puro (AMOLED); 8 temas de cores; cores do papel de parede (Android 12+).</li>
+        <li><b>Tabuleiro:</b> 6 temas, coordenadas e indicação de lances possíveis.</li>
+        <li><b>Relógio:</b> som, vibração, alerta de pouco tempo e a opção de continuar após a queda de bandeira.</li>
+        <li><b>Dados e backup:</b> <b>Exportar backup</b> gera um arquivo com tudo (torneios, jogadores, partidas e ajustes). Use <b>Restaurar</b> no aparelho novo.</li>
+      </ul>
+      <div class="tip"><b>Importante:</b> tudo fica só no seu aparelho. Se desinstalar o app sem ter exportado um backup (e sem o backup do Android ativado), os dados são perdidos.</div>
+    </div>
+    <div class="shot"><img src="img/07_temas.webp" alt="Ajustes de temas"></div>
+  </div>
+</section>
+
+<section id="perguntas">
+  <h2>Dúvidas frequentes</h2>
+  <details><summary>Precisa de internet?</summary><p>Não. O app funciona totalmente offline, inclusive no salão de jogos sem sinal.</p></details>
+  <details><summary>O emparceiramento suíço é homologado pela FIDE?</summary><p>Não. O Chess Box segue os princípios do sistema holandês da FIDE (sem reencontros, controle de cores, grupos de pontuação), mas não é um programa homologado. Para torneios que valem rating FIDE, exporte o arquivo TRF e confira as rodadas num programa homologado.</p></details>
+  <details><summary>Quantos jogadores cabem num torneio?</summary><p>Não há limite fixo. Torneios com centenas de jogadores são emparceirados em menos de um segundo.</p></details>
+  <details><summary>Como passo meus dados para outro celular?</summary><p>Em Ajustes, use <b>Exportar backup</b>, envie o arquivo para o novo aparelho e use <b>Restaurar</b>.</p></details>
+  <details><summary>Posso abrir um torneio do Swiss-Manager ou do Vega?</summary><p>Sim, se o programa exportar no formato TRF da FIDE. Use <b>Importar TRF</b> na lista de torneios.</p></details>
+  <details><summary>O relógio continua contando com a tela apagada?</summary><p>A tela fica ligada enquanto o relógio está aberto. Se você sair do app, o relógio pausa automaticamente.</p></details>
+</section>
+
+</main>
+
+<footer><div class="in">
+  <span>Chess Box — torneios, relógio e súmula de xadrez.</span>
+  <span><a href="privacidade.html">Política de Privacidade</a></span>
+</div></footer>
+</body>
+</html>
